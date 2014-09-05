@@ -1,0 +1,28 @@
+<div>
+  <div class="whitetextcolor centertext"><h1>Blackboard: {{ whiteboardName }}</h1></div>
+  <div class="wrapper">
+    <div class="whiteboard roundedcorners bordershadow">
+      <div ng-repeat="note in posts" class="heightforcontainerdiv">
+        <div class="sidebar">
+          <div class="scroller" ng-class="{'yellow-background' : note.color[0].yellow, 'green-background' : note.color[1].green, 'blue-background' : note.color[2].blue, 'red-background' : note.color[3].red}">
+            <wb-show-title-text></wb-show-title-text>
+
+            <wb-update-color-and-delete-note-markers></wb-update-color-and-delete-note-markers>
+
+            <wb-show-title-update></wb-show-title-update>
+
+            <wb-line-marker></wb-line-marker>
+
+            <wb-show-information-text></wb-show-information-text>
+
+            <wb-show-information-update></wb-show-information-update>
+
+            <wb-show-color-update></wb-show-color-update>
+          </div>
+        </div>
+        <!-- <div class="whitetextcolor">{{ note.db }}</div> -->
+      </div>
+    </div>
+    <wb-right-menu></wb-right-menu>
+  </div>
+</div>

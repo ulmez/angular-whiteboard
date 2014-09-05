@@ -1,0 +1,26 @@
+<div class="whitetextcolor centertext">
+	<h1>Blackboard Groups</h1>
+</div>
+<div class="wrapper">
+	<div class="whiteboard roundedcorners bordershadow">
+		<div class="whitetextcolor">
+			<table style="margin: 0 auto; text-align:center; text-shadow: 2px 2px #000000;">
+				<tr ng-repeat="note in posts | filter:whiteboardNameSearch">
+					<td><span class="pointer" ng-click="whiteboardNameClicked(note.whiteboard)"><span ng-class="{brightwhitetextcolor: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"><h6>{{ note.whiteboard }}</h6></span></span></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="whitetextcolor rightmenu">
+		<div>
+			Blackboard search<br/>
+			<input type="text" maxlength="16" ng-model="whiteboardNameSearch" class="rightmenutitletextfieldwidth" style="color: black;" placeholder="Search here"/>
+			<br/><br/><br/>
+			New Blackboard<br/>
+			<input type="text" maxlength="16" ng-model="whiteboardName" class="rightmenutitletextfieldwidth" style="color: black;" placeholder="Name here"/>
+			<span class="redtextcolor" ng-show="errorWhiteboardNameMessage !== ''"><br/>{{ errorWhiteboardNameMessage }}</span>
+			<br/><br/>
+			<button ng-click="insertNewWhiteboard(whiteboardName)" style="color: black;">Insert new</button>
+		</div>
+	</div>
+</div>

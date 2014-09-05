@@ -1,0 +1,30 @@
+<div class="rightmenu">
+  <form name="signupform" ng-submit="insertNewNote()">
+    <div class="whitetextcolor">Insert new note here:<br/><br/></div>
+    <div class="whitetextcolor">Title</div>
+    <div><input name="title" type="text" class="rightmenutitletextfieldwidth" ng-model="titleText" placeholder="Title here" maxlength="15" required/>
+    <span class="redtextcolor" ng-show="signupform.title.$error.required && signupform.title.$dirty"><br/>No title inserted yet</span>
+    <br/><br/></div>
+    <div class="whitetextcolor">Information</div>
+    <div><textarea name="information" rows="4" cols="10" ng-model="informationText" placeholder="Info here" required></textarea>
+    <span class="redtextcolor" ng-show="signupform.information.$error.required && signupform.information.$dirty"><br/>No information inserted yet</span>
+    <br/><br/></div>
+    <div class="whitetextcolor">Color</div>
+    <div class="whitetextcolor">
+      <input type="radio" id="yellow" ng-value="yellow" name="colors" ng-click="getColor('yellow')" ng-checked="true"/> Yellow
+    </div>
+    <div class="whitetextcolor">
+      <input type="radio" id="green" ng-value="green" name="colors" ng-click="getColor('green')"/> Green
+      </div>
+    <div class="whitetextcolor">
+      <input type="radio" id="blue" ng-value="blue" name="colors" ng-click="getColor('blue')"/> Blue
+      </div>
+    <div class="whitetextcolor">
+      <input type="radio" id="red" ng-value="red" name="colors" ng-click="getColor('red')"/> Red<br/><br/>
+    </div>
+    <div>
+      <input type="submit" value="New note" ng-disabled="signupform.$invalid"/>
+    </div>
+  </form>
+  <span class="whitetextcolor pointer"><span ng-class="{brightwhitetextcolor: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="backToWhiteboards()"><br/><br/><< Back</span></span>
+</div>

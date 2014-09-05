@@ -1,0 +1,140 @@
+body {
+  font-family: "Monaco";
+  font-size: 9px;
+  background-image: url("../images/ebony.jpg");
+}
+
+textarea {
+  resize: none;
+}
+
+.brightwhitetextcolor {
+  color: white;
+}
+
+.whitetextcolor {
+  color: lightgray;
+}
+
+.redtextcolor {
+  color: red;
+}
+
+.redbackgroundcolor {
+  background-color: red;
+}
+
+.bluebackgroundcolor {
+  background-color: blue;
+}
+
+.wrapper {
+  width: 800px;
+}
+
+.whiteboard {
+  background-image: url("../images/whiteboard.jpg");
+  height: 515px;
+  width: 640px;
+  padding-bottom: 15px;
+  float: left;
+  overflow: auto;
+}
+
+.rightmenu {
+  float: left;
+  padding-left: 5px;
+}
+
+.sidebar{
+  width: 150px;
+  height: 100px;
+  float: left;
+  position:absolute; bottom:0;
+  overflow: hidden;
+  text-align: bottom;
+}
+
+.scroller {
+  width: 165px;
+  height: 115px;
+  padding-left: 45px;
+  padding-top: 5px;
+  padding-right: 11px;
+  padding-bottom: 5px;
+  overflow: scroll;
+}
+
+.yellow-background {
+  background-image: url("../images/note-yellow-test.png");
+}
+
+.green-background {
+  background-image: url("../images/note-green-test.png");
+}
+
+.blue-background {
+  background-image: url("../images/note-blue-test.png");
+}
+
+.red-background {
+  background-image: url("../images/note-red-test.png");
+}
+
+input[type="text"] {
+  width: 62px;
+  height: 13px;
+}
+
+input.rightmenutitletextfieldwidth[type="text"] {
+  width: 75px;
+}
+
+.roundedcorners {
+  border: 5px gray solid;
+  border-radius: 25px;
+}
+
+.bordershadow {
+  background-color:yellow;
+  width:100;
+  height:100;
+  box-shadow:0px 0px 20px 4px black inset;
+}
+
+.centertext {
+  width: 640px;
+  text-align: center;
+}
+
+.verticalalignbottom {
+  vertical-align:bottom;
+}
+
+.upintd { 
+  padding: 0px 0px 2px 0px;
+}
+
+.titlewidth {
+  float: left;
+  width: 83px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.paddingright {
+  padding-right: 2px;
+}
+
+.heightforcontainerdiv {
+  float: left;
+  width: 150px;
+  height: 120px;
+  position:relative;
+}
+
+.tablewidth {
+  width: 70px;
+}

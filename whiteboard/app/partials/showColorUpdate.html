@@ -1,0 +1,27 @@
+<span ng-show="colorShowIt === note.id">
+  <span>Change color:<br/>
+    <table>
+      <tr>
+        <td>
+          <table class="tablewidth">
+            <tr>
+              <td><input type="radio" id="yellow{{note.id}}" ng-value="yellow" name="changeColor{{note.id}}" ng-click="getColorUpdate('yellow')"/> Yellow</td>
+            </tr>
+            <tr>
+              <td><input type="radio" id="green{{note.id}}" ng-value="green" name="changeColor{{note.id}}" ng-click="getColorUpdate('green')"/> Green</td>
+            </tr>
+            <tr>
+              <td><input type="radio" id="blue{{note.id}}" ng-value="blue" name="changeColor{{note.id}}" ng-click="getColorUpdate('blue')"/> Blue</td>
+            </tr>
+            <tr>
+              <td><input type="radio" id="red{{note.id}}" ng-value="red" name="changeColor{{note.id}}" ng-click="getColorUpdate('red')"/> Red</td>
+            </tr>
+          </table>
+        </td>
+        <td class="verticalalignbottom">
+          <button ng-click="updateColor()">OK</button>
+        </td>
+      </tr>
+    </table>
+  </span>
+</span>
