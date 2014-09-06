@@ -20,6 +20,18 @@ textarea {
   color: red;
 }
 
+.brightredtextcolor {
+  color: #FF9900;
+}
+
+.bluetextcolor {
+  color: #0066FF;
+}
+
+.brightbluetextcolor {
+  color: #00CCFF;
+}
+
 .redbackgroundcolor {
   background-color: red;
 }

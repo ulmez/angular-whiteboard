@@ -58,12 +58,10 @@ angular.module('whiteboardApp')
           if (status === 200) {
             for (i = 0; i < data.length; i = i + 1) {
               if (whiteboardName.toLowerCase() === data[i].whiteboard.toLowerCase()) {
-                //window.alert(data[i].whiteboard);
                 checkIfAlreadyUsed = false;
               }
             }
 
-            //--------------
             if (checkIfAlreadyUsed) {
               $http({
                 method: 'POST',
@@ -79,10 +77,54 @@ angular.module('whiteboardApp')
                 }
               });
             }
-            //--------------
-
           }
         });
+      },
+      deleteWhiteboard: function (whiteboardObject, arrTemp) {
+        $http({
+          method: 'DELETE',
+          url: connection + '/' + whiteboardObject.id
+        }).
+        success(function (data, status) {
+          if (status === 200) {
+            for (i = 0; i < arrTemp.length; i = i + 1) {
+              if (whiteboardObject.id === arrTemp[i].id) {
+                arrTemp.splice(i, 1);
+              }
+            }
+          }
+        });
+      },
+      updateWhiteboard: function (whiteboardName, whiteboardObject, arrTemp) {
+        var i,
+          duplicateCheck = true,
+          tempNotes = whiteboardObject;
+
+        for (i = 0; i < arrTemp.length; i = i + 1) {
+          if (whiteboardName.toLowerCase() === arrTemp[i].whiteboard.toLowerCase() &&
+            tempNotes.id !== arrTemp[i].id) {
+            duplicateCheck = false;
+          }
+        }
+
+        tempNotes.whiteboard = whiteboardName;
+
+        if (duplicateCheck) {
+          $http({
+            method: 'PUT',
+            url: connection + '/' + whiteboardObject.id,
+            data: tempNotes
+          }).
+          success(function (data, status) {
+            if (status === 200) {
+              for (i = 0; i < arrTemp.length; i = i + 1) {
+                if (tempNotes.id === arrTemp[i].id) {
+                  arrTemp[i].whiteboard = tempNotes.whiteboard;
+                }
+              }
+            }
+          });
+        }
       },
       addItem: function (note, whiteboardName, arrTemp) {
         var tempNotes, tNote, id;

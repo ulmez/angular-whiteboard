@@ -6,7 +6,24 @@
 		<div class="whitetextcolor">
 			<table style="margin: 0 auto; text-align:center; text-shadow: 2px 2px #000000;">
 				<tr ng-repeat="note in posts | filter:whiteboardNameSearch">
-					<td><span class="pointer" ng-click="whiteboardNameClicked(note.whiteboard)"><span ng-class="{brightwhitetextcolor: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"><h6>{{ note.whiteboard }}</h6></span></span></td>
+					<td width="150px" height="35px">
+						<span ng-show="showUpdateWhiteboard !== note.id"><span ng-show="checker === 0 || checker === 1" class="pointer" ng-click="whiteboardNameClicked(note.whiteboard)"><span ng-class="{brightwhitetextcolor: hover}" ng-mouseenter="hover = true; mouseOverOperation(1)" ng-mouseleave="hover = false"><h6>{{ note.whiteboard }}</h6></span></span>
+
+						<span ng-show="checker === 2 || checker === 3" class="pointer" ng-click="whiteboardNameClicked(note.whiteboard)" ng-mouseenter="mouseOverOperation(0)"><h6>{{ note.whiteboard }}</h6></span></span>
+
+						<div ng-show="showUpdateWhiteboard === note.id || (errorWhiteboardNameUpdateMessage !== '' && showUpdateWhiteboard === note.id)"><input type="text" style="width: 110px; color: black; box-shadow: 2px 2px 2px 0px #000000;" placeholder="Change blackboard" ng-model="wUpdate" maxlength="16" select-on-click/><button style="color: black;" ng-show="wUpdate.length > 0" ng-click="whiteboardUpdate(wUpdate, note)">OK</button><button ng-model="idOfPressedButton" style="color: black;" ng-show="wUpdate.length === 0" disabled>OK</button></div>
+						<span class="redtextcolor" ng-show="errorWhiteboardNameUpdateMessage !== '' && idOfPressedButton === note.id && showUpdateWhiteboard === note.id && showErrorMessage">{{ errorWhiteboardNameUpdateMessage }}</span>
+					</td>
+					<td width="20px">
+						<span ng-show="checker === 3" class="bluetextcolor pointer"><span ng-class="{brightbluetextcolor: hover}" ng-mouseenter="hover = true; mouseOverOperation(3)" ng-mouseleave="hover = false" ng-click="updateClicked(note.id, note.whiteboard)">U</span></span>
+
+						<span ng-show="checker !== 3" class="bluetextcolor pointer" ng-mouseenter="mouseOverOperation(3)">U</span>
+					</td>
+					<td>
+						<span ng-show="checker !== 1 && checker !== 3" class="redtextcolor pointer"><span ng-class="{brightredtextcolor: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="whiteboardDelete(note)">X</span></span>
+
+						<span ng-show="checker === 1 || checker === 3" class="redtextcolor pointer" ng-mouseenter="mouseOverOperation(2)">X</span>
+					</td>
 				</tr>
 			</table>
 		</div>
