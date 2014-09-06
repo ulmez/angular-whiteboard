@@ -47,7 +47,11 @@ angular.module('whiteboardApp')
 
 		$scope.whiteboardDelete = function (obj) {
 			$scope.showUpdateWhiteboard = 0;
-			whiteboard.deleteWhiteboard(obj, $scope.posts);
+			var conf = window.confirm('Are you absolutely sure you would like to delete this blackboard?');
+
+			if (conf) {
+				whiteboard.deleteWhiteboard(obj, $scope.posts);
+			}
 		};
 
 		$scope.whiteboardUpdate = function (name, obj) {
